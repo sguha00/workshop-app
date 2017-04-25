@@ -18,6 +18,8 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.dateInput = new FormControl('');
+    this.dateInput.valueChanges.subscribe(val => console.log(val));
+
     this.videoData = this.videoListService.load();
   }
 
