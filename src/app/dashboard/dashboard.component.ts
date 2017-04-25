@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { VideoListService } from './../shared/video-list.service'
-import { FormControl } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
 import { Video } from './../shared/video'
 
@@ -12,13 +12,18 @@ import { Video } from './../shared/video'
 export class DashboardComponent implements OnInit {
   videoData: Observable<Video[]>;
   activeVideo: any;
-  dateInput: FormControl;
+  filterForm: FormGroup;
 
-  constructor(private videoListService: VideoListService) { }
+  constructor(
+    private videoListService: VideoListService,
+    private formBuilder: FormBuilder) {
+  }
 
   ngOnInit() {
-    this.dateInput = new FormControl('');
-    this.dateInput.valueChanges.subscribe(val => console.log(val));
+    this.filterForm = this.formBuilder.group({
+      startDate: []
+    })
+    this.filterForm.valueChanges.subscribe(val => console.log(val));
 
     this.videoData = this.videoListService.load();
   }

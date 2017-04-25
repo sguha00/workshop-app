@@ -2,7 +2,9 @@
   dashboard works!
 </p>
 
-<input type="date" [formControl]="dateInput">
+<form [formGroup]="filterForm">
+  <input type="date" formControlName="startDate">
+</form>
 
 <h3 *ngIf="activeVideo">Selected Video: {{activeVideo.title}}
   <i class="fa fa-close" aria-hidden="true" (click)="activeVideo = null"></i>
