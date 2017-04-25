@@ -170,9 +170,15 @@ const videoData = [
 })
 export class DashboardComponent implements OnInit {
   videoData = videoData;
+  activeVideo: any;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  setActiveVideo(videoEvent) {
+    this.activeVideo = videoEvent;
   }
 
 }

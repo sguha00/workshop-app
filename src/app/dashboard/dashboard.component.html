@@ -1,4 +1,11 @@
 <p>
   dashboard works!
 </p>
-<app-video-list [videos]="videoData"></app-video-list>
+
+<h3 *ngIf="activeVideo">Selected Video: {{activeVideo.title}}</h3>
+<h3 *ngIf="!activeVideo">Select Video Below</h3>
+
+<app-video-list
+  [videos]="videoData"
+  (selectedVideo)= "setActiveVideo($event)">
+</app-video-list>
