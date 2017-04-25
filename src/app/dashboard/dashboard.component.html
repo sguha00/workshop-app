@@ -2,7 +2,9 @@
   dashboard works!
 </p>
 
-<h3 *ngIf="activeVideo">Selected Video: {{activeVideo.title}}</h3>
+<h3 *ngIf="activeVideo">Selected Video: {{activeVideo.title}}
+  <i class="fa fa-close" aria-hidden="true" (click)="activeVideo = null"></i>
+</h3>
 <h3 *ngIf="!activeVideo">Select Video Below</h3>
 
 <app-video-list
