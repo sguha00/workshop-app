@@ -10,11 +10,10 @@ export class DashboardComponent implements OnInit {
   videoData: {}[];
   activeVideo: any;
 
-  constructor(private videoListServie: VideoListService) {
-    this.videoData = videoListServie.getVideos();
-  }
+  constructor(private videoListService: VideoListService) { }
 
   ngOnInit() {
+    this.videoData = this.videoListService.getVideos();
   }
 
   setActiveVideo(videoEvent) {
