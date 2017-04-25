@@ -2,5 +2,7 @@
   <li class="collection-item" *ngFor="let video of videos">
     <h3>{{video.title}}</h3>
     {{video.author}}
+
+    <button (click)="select(video)">Select</button>
   </li>
 </ul>

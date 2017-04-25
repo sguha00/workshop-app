@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AddVideoComponent } from './add-video/add-video.component';
 import { UsersComponent } from './users/users.component';
+import { VideoListService } from './shared/video-list.service'
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import { UsersComponent } from './users/users.component';
     HttpModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [VideoListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

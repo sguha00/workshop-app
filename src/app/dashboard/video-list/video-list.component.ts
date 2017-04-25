@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-video-list',
@@ -7,9 +8,15 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class VideoListComponent implements OnInit {
   @Input() videos: {}[];
-  constructor() { }
+  @Output() selectedVideo = new EventEmitter();
 
+  constructor(private title: Title) { }
   ngOnInit() {
+  }
+
+  select(video) {
+    this.title.setTitle(video.title);
+    this.selectedVideo.emit(video);
   }
 
 }
